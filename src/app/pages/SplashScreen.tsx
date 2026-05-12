@@ -53,7 +53,7 @@ export default function SplashScreen() {
           <div
             className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{
-              background: 'linear-gradient(135deg, #0B5D3B, #157A49)',
+              // background: 'linear-gradient(135deg, #0B5D3B, #157A49)',
               boxShadow: '0 2px 10px rgba(11,93,59,0.35)',
               padding: 3,
             }}
