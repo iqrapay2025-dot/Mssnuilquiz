@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap');
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light scrollbars for admin pages */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+*::-webkit-scrollbar { width: 5px; height: 5px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 6px; }
+*::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
