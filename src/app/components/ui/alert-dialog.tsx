@@ -4,6 +4,7 @@ import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 
 import { cn } from "./utils";
+import { VisuallyHidden } from "./visually-hidden";
 import { buttonVariants } from "./button";
 
 function AlertDialog({
@@ -58,7 +59,13 @@ function AlertDialogContent({
           className,
         )}
         {...props}
-      />
+      >
+        {/* Hidden title and description for accessibility */}
+        <VisuallyHidden>
+          <AlertDialogPrimitive.Title>Alert</AlertDialogPrimitive.Title>
+          <AlertDialogPrimitive.Description>Alert content</AlertDialogPrimitive.Description>
+        </VisuallyHidden>
+      </AlertDialogPrimitive.Content>
     </AlertDialogPortal>
   );
 }
