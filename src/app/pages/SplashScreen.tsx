@@ -69,7 +69,7 @@ export default function SplashScreen() {
             />
           </div>
           <div className="hidden sm:block">
-            <p className="font-bold text-xs md:text-sm text-gray-900">MSSN Quiz Championship</p>
+            <p className="font-bold text-xs md:text-sm text-gray-900">MSSN UNILORIN Quiz Championship</p>
             <p className="text-xs text-gray-400">Jihad Week Interfaculty Platform</p>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function SplashScreen() {
                   </div>
                 </div>
                 <h1 className="text-2xl md:text-4xl font-black text-gray-900 mb-2 md:mb-3 leading-tight">
-                  MSSN Quiz
+                  MSSN UNILORIN Quiz
                   <span style={{ color: '#0B5D3B' }}> Championship</span>
                 </h1>
                 <p className="text-gray-500 text-sm md:text-base mb-4 md:mb-6 max-w-lg">

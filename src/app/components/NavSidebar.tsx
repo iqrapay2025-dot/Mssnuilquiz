@@ -59,7 +59,7 @@ export function NavSidebar({ children }: NavSidebarProps) {
           />
         </div>
         <div className="leading-tight">
-          <p className="font-bold text-sm" style={{ color: '#111827' }}>MSSN Quiz</p>
+          <p className="font-bold text-sm" style={{ color: '#111827' }}>MSSN UNILORIN Quiz</p>
           <p className="text-xs" style={{ color: '#9ca3af' }}>Championship</p>
         </div>
       </div>

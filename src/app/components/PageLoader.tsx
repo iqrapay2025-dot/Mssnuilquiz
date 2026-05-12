@@ -73,7 +73,7 @@ function AppSplash({ onDone }: { onDone: () => void }) {
         className="text-center"
       >
         <p className="text-white font-black tracking-wide" style={{ fontSize: 22 }}>
-          MSSN Quiz
+          MSSN UNILORIN Quiz
           <span style={{ color: '#C8A951' }}> Championship</span>
         </p>
         <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>
