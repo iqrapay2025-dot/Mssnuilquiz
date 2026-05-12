@@ -135,7 +135,7 @@ export default function ReadyScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="grid grid-cols-3 gap-4 w-full mb-8"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 w-full mb-8"
         >
           {[
             { label: 'Questions', value: session.config.numQuestions },

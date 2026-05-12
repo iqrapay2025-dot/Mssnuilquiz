@@ -330,9 +330,9 @@ export default function ImportQuestions() {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto p-6 space-y-5">
+        <div className="max-w-3xl mx-auto p-4 md:p-6 space-y-5">
           {/* Supported formats */}
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-3">
             {[
               { ext: 'CSV', icon: FileSpreadsheet, color: '#16a34a', bg: '#dcfce7', note: 'Structured table' },
               { ext: 'XLSX / XLS', icon: FileSpreadsheet, color: '#15803d', bg: '#f0fdf4', note: 'Excel workbook' },

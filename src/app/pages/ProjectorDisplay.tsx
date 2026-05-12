@@ -175,7 +175,7 @@ export default function ProjectorDisplay() {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-16 py-8">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 py-6 md:py-8">
         {/* Question counter */}
         <motion.div
           key={session.currentIndex}

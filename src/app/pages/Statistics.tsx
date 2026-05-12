@@ -124,9 +124,9 @@ export default function Statistics() {
           </div>
         </div>
 
-        <div className="p-6 space-y-5">
+        <div className="p-4 md:p-6 space-y-5">
           {/* Stat cards */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3">
             <StatCard label="Sessions" value={totalSessions} icon={BookOpen} color="#0B5D3B" bg="#ebf5ef" />
             <StatCard label="Accuracy" value={`${overallAccuracy}%`} icon={Target} color="#16a34a" bg="#dcfce7" />
             <StatCard label="Best Score" value={highestScore} icon={Award} color="#d97706" bg="#fef9c3" />

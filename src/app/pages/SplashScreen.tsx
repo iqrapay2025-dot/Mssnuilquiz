@@ -39,7 +39,7 @@ export default function SplashScreen() {
     <div className="min-h-screen" style={{ background: '#f3f6f4' }}>
       {/* ── Sticky glassmorphism top nav ── */}
       <header
-        className="sticky top-0 z-50 px-8 py-3.5 flex items-center justify-between transition-all"
+        className="sticky top-0 z-50 px-4 md:px-8 py-3.5 flex items-center justify-between transition-all"
         style={{
           background: 'rgba(255,255,255,0.82)',
           backdropFilter: 'blur(20px)',
@@ -48,12 +48,11 @@ export default function SplashScreen() {
           boxShadow: '0 2px 16px rgba(11,93,59,0.07)',
         }}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3 min-w-0">
           {/* Logo with white stroke */}
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+            className="w-8 md:w-10 h-8 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0"
             style={{
-              // background: 'linear-gradient(135deg, #0B5D3B, #157A49)',
               boxShadow: '0 2px 10px rgba(11,93,59,0.35)',
               padding: 3,
             }}
@@ -62,37 +61,38 @@ export default function SplashScreen() {
               src={mssnLogo}
               alt="MSSN Logo"
               style={{
-                width: 30,
-                height: 30,
+                width: 24,
+                height: 24,
                 objectFit: 'contain',
                 filter: 'drop-shadow(0 0 2px rgba(255,255,255,0.95)) drop-shadow(0 0 5px rgba(255,255,255,0.6))',
               }}
             />
           </div>
-          <div>
-            <p className="font-bold text-sm text-gray-900">MSSN Quiz Championship</p>
+          <div className="hidden sm:block">
+            <p className="font-bold text-xs md:text-sm text-gray-900">MSSN Quiz Championship</p>
             <p className="text-xs text-gray-400">Jihad Week Interfaculty Platform</p>
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <button
             onClick={() => navigate('/questions')}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            className="hidden md:block text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
           >
             Manage
           </button>
           <button
             onClick={() => navigate('/setup')}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98]"
+            className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-lg text-xs md:text-sm font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98]"
             style={{ background: 'linear-gradient(135deg, #0B5D3B, #157A49)' }}
           >
-            <Play className="w-4 h-4" />
-            Start Competition
+            <Play className="w-3 h-3 md:w-4 md:h-4" />
+            <span className="hidden sm:inline">Start Competition</span>
+            <span className="sm:hidden">Start</span>
           </button>
         </div>
       </header>
 
-      <div className="max-w-5xl mx-auto px-6 py-10">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 py-6 md:py-10">
         {/* Hero */}
         <ScrollReveal>
           <div
@@ -107,56 +107,57 @@ export default function SplashScreen() {
               className="h-1.5 w-full"
               style={{ background: 'linear-gradient(90deg, #0B5D3B, #C8A951, #157A49)' }}
             />
-            <div className="flex items-center justify-between px-8 py-8">
-              <div className="flex-1">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 px-4 md:px-8 py-6 md:py-8">
+              <div className="flex-1 w-full">
                 {/* Logo + brand row */}
-                <div className="flex items-center gap-3 mb-5">
+                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-5">
                   <img
                     src={mssnLogo}
                     alt="MSSN Logo"
                     style={{
-                      width: 52,
-                      height: 52,
+                      width: 40,
+                      height: 40,
                       objectFit: 'contain',
                       filter: 'drop-shadow(0 2px 6px rgba(11,93,59,0.25))',
                     }}
                   />
                   <div
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold"
+                    className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold"
                     style={{ background: '#ebf5ef', color: '#0B5D3B' }}
                   >
                     <Zap className="w-3 h-3" />
                     Live Quiz System — Ready to Go
                   </div>
                 </div>
-                <h1 className="text-4xl font-black text-gray-900 mb-3 leading-tight">
+                <h1 className="text-2xl md:text-4xl font-black text-gray-900 mb-2 md:mb-3 leading-tight">
                   MSSN Quiz
                   <span style={{ color: '#0B5D3B' }}> Championship</span>
                 </h1>
-                <p className="text-gray-500 text-base mb-6 max-w-lg">
+                <p className="text-gray-500 text-sm md:text-base mb-4 md:mb-6 max-w-lg">
                   Host live Islamic knowledge competitions. Moderator-controlled, projector-friendly,
                   with real-time scoring and leaderboards.
                 </p>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
                   <button
                     onClick={() => navigate('/setup')}
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white text-sm transition-all hover:opacity-90 active:scale-[0.98]"
+                    className="flex items-center justify-center md:justify-start gap-1 md:gap-2 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold text-white text-xs md:text-sm transition-all hover:opacity-90 active:scale-[0.98]"
                     style={{
                       background: 'linear-gradient(135deg, #0B5D3B, #157A49)',
                       boxShadow: '0 4px 12px rgba(11,93,59,0.3)',
                     }}
                   >
-                    <Play className="w-4 h-4" />
+                    <Play className="w-3 h-3 md:w-4 md:h-4" />
                     Start Competition
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                   </button>
                   <button
                     onClick={() => navigate('/import')}
-                    className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all hover:bg-gray-50 active:scale-[0.98]"
+                    className="flex items-center justify-center md:justify-start gap-1 md:gap-2 px-4 md:px-5 py-2 md:py-3 rounded-lg md:rounded-xl font-semibold text-xs md:text-sm transition-all hover:bg-gray-50 active:scale-[0.98]"
                     style={{ border: '1px solid #e5e7eb', color: '#374151', background: '#ffffff' }}
                   >
-                    <Upload className="w-4 h-4" />
-                    Upload Questions
+                    <Upload className="w-3 h-3 md:w-4 md:h-4" />
+                    <span className="hidden sm:inline">Upload Questions</span>
+                    <span className="sm:hidden">Upload</span>
                   </button>
                 </div>
               </div>
@@ -207,7 +208,7 @@ export default function SplashScreen() {
 
         {/* Stats row */}
         <ScrollReveal delay={0.1}>
-          <div className="grid grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6">
             {[
               { label: 'Questions', value: totalQ, sub: `${unusedQ} unused`, icon: BookOpen, color: '#0B5D3B' },
               { label: 'Faculties', value: totalFaculties, sub: 'registered', icon: Users, color: '#7c3aed' },
@@ -218,17 +219,17 @@ export default function SplashScreen() {
               return (
                 <div
                   key={item.label}
-                  className="bg-white rounded-xl px-5 py-4 flex items-center gap-4"
+                  className="bg-white rounded-lg md:rounded-xl px-4 md:px-5 py-3 md:py-4 flex items-center gap-3 md:gap-4"
                   style={{ border: '1px solid #e5ebe7', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    className="w-9 md:w-10 h-9 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: item.color + '15' }}
                   >
-                    <Icon className="w-5 h-5" style={{ color: item.color }} />
+                    <Icon className="w-4 md:w-5 h-4 md:h-5" style={{ color: item.color }} />
                   </div>
                   <div>
-                    <p className="text-2xl font-black text-gray-900">{item.value}</p>
+                    <p className="text-xl md:text-2xl font-black text-gray-900">{item.value}</p>
                     <p className="text-xs text-gray-400">
                       {item.label} · {item.sub}
                     </p>
@@ -242,9 +243,9 @@ export default function SplashScreen() {
         {/* Quick links grid */}
         <ScrollReveal delay={0.15}>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-base font-bold text-gray-900">Quick Access</h2>
+            <h2 className="text-sm md:text-base font-bold text-gray-900">Quick Access</h2>
           </div>
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
             {quickLinks.map(item => {
               const Icon = item.icon;
               return (
@@ -253,17 +254,17 @@ export default function SplashScreen() {
                   onClick={() => navigate(item.path)}
                   whileHover={{ y: -3, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }}
                   whileTap={{ scale: 0.97 }}
-                  className="bg-white rounded-xl px-4 py-5 text-left transition-all flex flex-col items-start gap-3"
+                  className="bg-white rounded-lg md:rounded-xl px-3 md:px-4 py-4 md:py-5 text-left transition-all flex flex-col items-start gap-2 md:gap-3"
                   style={{ border: '1px solid #e5ebe7', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    className="w-8 md:w-10 h-8 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center"
                     style={{ background: item.bg }}
                   >
-                    <Icon className="w-5 h-5" style={{ color: item.color }} />
+                    <Icon className="w-4 md:w-5 h-4 md:h-5" style={{ color: item.color }} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-800">{item.label}</p>
+                    <p className="text-xs md:text-sm font-semibold text-gray-800">{item.label}</p>
                     {item.count !== null && (
                       <p className="text-xs text-gray-400 mt-0.5">{item.count} items</p>
                     )}

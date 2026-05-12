@@ -101,7 +101,7 @@ export default function SetupScreen() {
         </div>
       </header>
 
-      <div className="max-w-2xl mx-auto px-6 py-8">
+      <div className="max-w-2xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {/* Question bank status */}
         <div
           className="flex items-center gap-3 px-4 py-3 rounded-xl mb-6"
@@ -201,7 +201,7 @@ export default function SetupScreen() {
             </div>
 
             {/* Numeric settings */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-600 mb-1.5">Questions</label>
                 <input

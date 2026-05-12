@@ -118,7 +118,7 @@ export default function SessionResult() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-3 gap-3 mb-5"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3 mb-5"
         >
           {[
             { label: 'Correct', value: correct, color: '#4ade80', bg: 'rgba(74,222,128,0.1)', border: 'rgba(74,222,128,0.2)', icon: CheckCircle },
