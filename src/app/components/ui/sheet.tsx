@@ -29,12 +29,13 @@ function SheetPortal({
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
-function SheetOverlay({
-  className,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
+function SheetOverlay(
+  { className, ...props }: React.ComponentProps<typeof SheetPrimitive.Overlay>,
+  ref: React.Ref<React.ElementRef<typeof SheetPrimitive.Overlay>>
+) {
   return (
     <SheetPrimitive.Overlay
+      ref={ref}
       data-slot="sheet-overlay"
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
@@ -44,6 +45,8 @@ function SheetOverlay({
     />
   );
 }
+
+const SheetOverlayForwarded = React.forwardRef(SheetOverlay);
 
 function SheetContent({
   className,
@@ -55,7 +58,7 @@ function SheetContent({
 }) {
   return (
     <SheetPortal>
-      <SheetOverlay />
+      <SheetOverlayForwarded />
       <SheetPrimitive.Content
         data-slot="sheet-content"
         className={cn(
