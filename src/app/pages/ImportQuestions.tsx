@@ -298,6 +298,17 @@ export default function ImportQuestions() {
     URL.revokeObjectURL(url);
   }
 
+  function handleDeleteAllQuestions() {
+    if (!state.questions.length) return;
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete all ${state.questions.length} questions? This action cannot be undone.`
+    );
+    if (confirmDelete) {
+      dispatch({ type: 'CLEAR_ALL_QUESTIONS' });
+      setError('');
+    }
+  }
+
   const inputStyle = "w-full px-3 py-2 rounded-lg text-sm text-gray-800 outline-none focus:ring-2 focus:ring-green-500 bg-white";
   const inputBorder = { border: '1px solid #d1d5db' };
 
@@ -319,14 +330,27 @@ export default function ImportQuestions() {
                 Upload CSV, Excel, Word (.docx), or PDF — questions are auto-extracted
               </p>
             </div>
-            <button
-              onClick={downloadTemplate}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
-              style={{ border: '1px solid #e5e7eb' }}
-            >
-              <Download className="w-4 h-4" />
-              CSV Template
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={downloadTemplate}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
+                style={{ border: '1px solid #e5e7eb' }}
+              >
+                <Download className="w-4 h-4" />
+                CSV Template
+              </button>
+              {state.questions.length > 0 && (
+                <button
+                  onClick={handleDeleteAllQuestions}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+                  style={{ border: '1px solid #fecaca' }}
+                  title={`Delete all ${state.questions.length} questions`}
+                >
+                  <Trash2 className="w-4 h-4" />
+                  Delete All ({state.questions.length})
+                </button>
+              )}
+            </div>
           </div>
         </div>
 

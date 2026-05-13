@@ -36,6 +36,7 @@ type Action =
   | { type: 'UPDATE_QUESTION'; payload: Question }
   | { type: 'DELETE_QUESTION'; payload: string }
   | { type: 'RESET_ALL_USED' }
+  | { type: 'CLEAR_ALL_QUESTIONS' }
   | { type: 'ADD_FACULTY'; payload: Faculty }
   | { type: 'UPDATE_FACULTY'; payload: Faculty }
   | { type: 'DELETE_FACULTY'; payload: string }
@@ -96,6 +97,9 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'RESET_ALL_USED':
       return { ...state, questions: state.questions.map(q => ({ ...q, used: false })) };
+
+    case 'CLEAR_ALL_QUESTIONS':
+      return { ...state, questions: [] };
 
     case 'ADD_FACULTY':
       return { ...state, faculties: [...state.faculties, action.payload] };

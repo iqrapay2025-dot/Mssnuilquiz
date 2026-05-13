@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'motion/react';
-import { Users, Clock, Star, BookOpen, ChevronLeft, Play, Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { Users, Clock, Star, BookOpen, ChevronLeft, Play, Eye, EyeOff, AlertCircle, Trash2 } from 'lucide-react';
 import { useQuiz, generateId } from '../store/quizStore';
 import { SessionType, Category } from '../store/types';
 import { SetupSkeleton } from '../components/Skeletons';
-import mssnLogo from '../../imports/mssn_logo-removebg-preview__3_.png';
+import mssnLogo from '../../../src/imports/mssn_logo-removebg-preview__3_.png';
 
 export default function SetupScreen() {
   const navigate = useNavigate();
@@ -49,6 +49,17 @@ export default function SetupScreen() {
     navigate('/ready');
   }
 
+  function handleDeleteAllQuestions() {
+    if (totalQs === 0) return;
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete all ${totalQs} questions? This action cannot be undone.`
+    );
+    if (confirmDelete) {
+      dispatch({ type: 'CLEAR_ALL_QUESTIONS' });
+      setError('');
+    }
+  }
+
   const inputClass = "w-full px-3 py-2.5 rounded-lg text-sm text-gray-800 outline-none focus:ring-2 focus:ring-green-500 transition-all bg-white";
   const inputStyle = { border: '1px solid #d1d5db' };
 
@@ -82,14 +93,14 @@ export default function SetupScreen() {
         {/* Logo */}
         <div
           className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-          style={{ background: 'linear-gradient(135deg, #0B5D3B, #157A49)', padding: 2 }}
+          style={{ background: '#ffff', padding: 2 }}
         >
           <img
             src={mssnLogo}
             alt="MSSN Logo"
             style={{
-              width: 24,
-              height: 24,
+              width: 30,
+              height: 30,
               objectFit: 'contain',
               filter: 'drop-shadow(0 0 2px rgba(255,255,255,0.9))',
             }}
@@ -104,22 +115,33 @@ export default function SetupScreen() {
       <div className="max-w-2xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {/* Question bank status */}
         <div
-          className="flex items-center gap-3 px-4 py-3 rounded-xl mb-6"
+          className="flex items-center gap-3 px-4 py-3 rounded-xl mb-6 justify-between"
           style={{
             background: totalQs === 0 ? '#fef2f2' : '#f0fdf4',
             border: `1px solid ${totalQs === 0 ? '#fecaca' : '#bbf7d0'}`,
           }}
         >
-          <BookOpen className="w-4 h-4 flex-shrink-0" style={{ color: totalQs === 0 ? '#dc2626' : '#16a34a' }} />
-          <p className="text-sm" style={{ color: totalQs === 0 ? '#dc2626' : '#166534' }}>
-            <span className="font-bold">{totalQs}</span> questions total ·{' '}
-            <span className="font-bold">{availableQs}</span> unused
-            {totalQs === 0 && (
-              <button onClick={() => navigate('/import')} className="ml-2 underline font-semibold">
-                Import questions →
-              </button>
-            )}
-          </p>
+          <div className="flex items-center gap-3">
+            <BookOpen className="w-4 h-4 flex-shrink-0" style={{ color: totalQs === 0 ? '#dc2626' : '#16a34a' }} />
+            <p className="text-sm" style={{ color: totalQs === 0 ? '#dc2626' : '#166534' }}>
+              <span className="font-bold">{totalQs}</span> questions total ·{' '}
+              <span className="font-bold">{availableQs}</span> unused
+              {totalQs === 0 && (
+                <button onClick={() => navigate('/import')} className="ml-2 underline font-semibold">
+                  Import questions →
+                </button>
+              )}
+            </p>
+          </div>
+          {totalQs > 0 && (
+            <button
+              onClick={handleDeleteAllQuestions}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-red-600 hover:bg-red-100 transition-colors flex-shrink-0"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              Delete All
+            </button>
+          )}
         </div>
 
         {/* Form card */}
