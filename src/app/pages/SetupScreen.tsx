@@ -16,7 +16,7 @@ export default function SetupScreen() {
   const [sessionType, setSessionType] = useState<SessionType>('Male');
   const [members, setMembers] = useState(['', '']);
   const [numQuestions, setNumQuestions] = useState(15);
-  const [totalTime, setTotalTime] = useState(300);
+  const [totalTime, setTotalTime] = useState(120);
   const [pointsPerQ, setPointsPerQ] = useState(10);
   const [enableMultipliers, setEnableMultipliers] = useState(true);
   const [showPreview, setShowPreview] = useState(false);
