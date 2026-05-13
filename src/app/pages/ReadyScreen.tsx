@@ -139,7 +139,7 @@ export default function ReadyScreen() {
         >
           {[
             { label: 'Questions', value: session.config.numQuestions },
-            { label: 'Total Time', value: `${Math.floor(120 / 60)}m ${120 % 60}s` },
+            { label: 'Total Time', value: `${Math.floor(240 / 60)}m ${240 % 60}s` },
             { label: 'Pts/Question', value: session.config.pointsPerQuestion },
           ].map(item => (
             <div
