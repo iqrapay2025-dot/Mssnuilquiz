@@ -126,7 +126,7 @@ export default function SplashScreen() {
                     style={{ background: '#ebf5ef', color: '#0B5D3B' }}
                   >
                     <Zap className="w-3 h-3" />
-                    Live Quiz System — Ready to Go
+                    MSSN UNILORIN Live Quiz System — Ready to Go
                   </div>
                 </div>
                 <h1 className="text-2xl md:text-4xl font-black text-gray-900 mb-2 md:mb-3 leading-tight">
